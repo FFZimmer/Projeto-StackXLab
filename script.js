@@ -1,56 +1,47 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const display = document.getElementById("display");
-    const historyList = document.getElementById("history-list");
-    let currentExpression = "";
-    
-    // Function to update the display
-    function updateDisplay() {
-        display.value = currentExpression;
-    }
-    
-    // Add click event listeners to number buttons
-    const numberButtons = document.querySelectorAll(".number");
-    numberButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            currentExpression += button.textContent;
-            updateDisplay();
-        });
+let selectedPost = null;
+
+function createPostCards() {
+    const postCards = document.getElementById("post-cards");
+    postCards.innerHTML = "";
+    posts.forEach((post, index) => {
+        const card = document.createElement("div");
+        card.classList.add("post-card");
+        card.innerHTML = `
+            <h2>${post.title}</h2>
+            <img src="${post.image}" alt="${post.title}">
+            <p>Data: ${post.date}</p>
+            <button onclick="viewPost(${index})">Ler Mais</button>
+        `;
+        postCards.appendChild(card);
     });
-    
-    // Add click event listeners to operator buttons
-    const operatorButtons = document.querySelectorAll(".operator");
-    operatorButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            currentExpression += " " + button.textContent + " ";
-            updateDisplay();
-        });
-    });
-    
-    // Add click event listener to clear button
-    const clearButton = document.getElementById("clear");
-    clearButton.addEventListener("click", () => {
-        currentExpression = "";
-        updateDisplay();
-    });
-    
-    // Add click event listener to equals button
-    const equalsButton = document.getElementById("equals");
-    equalsButton.addEventListener("click", () => {
-        try {
-            const result = eval(currentExpression);
-            currentExpression = result.toString();
-            updateDisplay();
-            historyList.innerHTML += `<li>${currentExpression}</li>`;
-        } catch (error) {
-            currentExpression = "Error";
-            updateDisplay();
-        }
-    });
-    
-    // Add click event listener to history list items
-    historyList.addEventListener("click", event => {
-        const clickedExpression = event.target.textContent;
-        currentExpression = clickedExpression;
-        updateDisplay();
-    });
-});
+}
+
+function viewPost(index) {
+    selectedPost = index;
+    const post = posts[index];
+    const postContent = document.getElementById("post-content");
+    postContent.innerHTML = `
+        <h2>${post.title}</h2>
+        <p>Data: ${post.date}</p>
+        <img src="${post.image}" alt="${post.title}">
+        <p>Categoria: ${post.category}</p>
+        <p>Visualizações: ${post.views}</p>
+        <p>Autor: Nome do Autor</p>
+        <p>${post.content}</p>
+        <button onclick="goBack()">Voltar</button>
+    `;
+    window.location.href = "post.html";
+}
+
+function goBack() {
+    selectedPost = null;
+    const postContent = document.getElementById("post-content");
+    postContent.innerHTML = "";
+    window.location.href = "index.html";
+}
+
+if (selectedPost === null) {
+    createPostCards();
+} else {
+    viewPost(selectedPost);
+}

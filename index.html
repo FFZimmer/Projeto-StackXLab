@@ -1,39 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Calculadora Fernando Zimmer</title>
+    <title>Blog de Tecnologia - Por Fernando Zimmer</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="calculator">
-        <div class="history">
-            <h2>Histórico</h2>
-            <ul id="history-list"></ul>
+    <header>
+        <h1>Blog de Tecnologia - Por Fernando Zimmer</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Capa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="category-filter">
+        <!-- Botões de filtro por categoria -->
+        <button onclick="filterByCategory('all')">Todas</button>
+        <button onclick="filterByCategory('tecnologia')">Tecnologia</button>
+        <button onclick="filterByCategory('ciencia')">Ciência</button>
+        <button onclick="filterByCategory('inovacao')">Inovação</button>
+    </div>
+
+    <div id="top-news">
+        <div class="news-card">
+            <img src="https://img.freepik.com/fotos-gratis/homem-tiro-medio-usando-oculos-vr_23-2149126949.jpg?w=996&t=st=1697458274~exp=1697458874~hmac=433a67665cedc72d06e4d818a6fb837a5eb00bac91d6de3aa387cb4201386734" alt="Notícia 1">
+            <h2>Título da Notícia 1</h2>
+            <a href="post1.html">Ler Mais</a>
         </div>
-        <div class="display">
-            <input type="text" id="display" readonly>
+        <div class="news-card">
+            <img src="https://img.freepik.com/fotos-gratis/3d-rendem-de-uma-arvore-assustador-de-encontro-a-uma-lua_1048-2912.jpg?w=996&t=st=1697458437~exp=1697459037~hmac=b7df791550f6fa9b9cfe27b72f28d20dbd92b445c297ce7d7558f59bb4c103db" alt="Notícia 2">
+            <h2>Título da Notícia 2</h2>
+            <a href="post2.html">Ler Mais</a>
         </div>
-        <div class="buttons">
-            <button class="number">7</button>
-            <button class="number">8</button>
-            <button class="number">9</button>
-            <button class="operator">/</button>
-            <button class="number">4</button>
-            <button class="number">5</button>
-            <button class="number">6</button>
-            <button class="operator">*</button>
-            <button class="number">1</button>
-            <button class="number">2</button>
-            <button class="number">3</button>
-            <button class="operator">-</button>
-            <button id="clear">C</button>
-            <button class="number">0</button>
-            <button class="operator">+</button>
-            <button id="equals">=</button>
+        <div class="news-card">
+            <img src="https://img.freepik.com/fotos-gratis/cientista-analisa-bacteria-com-ampliacao-de-alta-escala-gerada-por-ia_188544-27928.jpg?w=996&t=st=1697458359~exp=1697458959~hmac=c3590dab3ad2b8f43d2c7cc0ff299a48fa7e653aacbd76f156186377498f8f78" alt="Notícia 3">
+            <h2>Título da Notícia 3</h2>
+            <a href="post3.html">Ler Mais</a>
         </div>
     </div>
+
+    <div id="post-cards">
+        <!-- Cards de postagens serão inseridos aqui via JavaScript -->
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

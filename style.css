@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://img.freepik.com/fotos-gratis/particulas-ciberneticas-3d-fluindo-com-profundidade-de-campo-rasa_1048-12765.jpg?w=996&t=st=1697464505~exp=1697465105~hmac=28dc3d60d1b70b8223bb953284f48752fd85d8d59db52a6ab7430aca0194e647');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+}
+
+header {
+    background-color: transparent 50 rgb(18, 18, 18);
+    color: #00aaff;
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+#top-news {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.news-card {
+    border: 2px solid #00aaff;
+    border-radius: 10px;
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    background-color: #121212;
+    color: #fff;
+}
+
+.news-card img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #00aaff;
+    border-radius: 5px;
+}
+
+#category-filter {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#category-filter button {
+    background-color: #00aaff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#post-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
